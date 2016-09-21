@@ -1,4 +1,4 @@
-#demo是封装好的一个星星评分控件
+#JNStarRateView是封装好的一个星星评分控件
 
 ![星星.png](http://upload-images.jianshu.io/upload_images/2953881-890745e4832cbcf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
