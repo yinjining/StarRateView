@@ -2,10 +2,13 @@
 
 ![星星.png](http://upload-images.jianshu.io/upload_images/2953881-890745e4832cbcf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+注：项目只支持>swift3.0
 ##使用如下：
 ###1、创建
 //let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 300,height: 50))//默认的是5颗星，分数为0分
+
 let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 300,height: 50), starCount: 6, score: 3.0)
+
 self.view.addSubview(starView)
 
 ###2、关闭用户操作,默认是开启的（用户可以操作评分）
