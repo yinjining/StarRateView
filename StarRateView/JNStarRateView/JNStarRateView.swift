@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol JNStarReteViewDelegate{
     //返回星星评分的分值
-    optional func starRate(view starRateView:JNStarRateView,score:Float) -> ()
+    @objc optional func starRate(view starRateView:JNStarRateView,score:Float) -> ()
 }
 
 //星星评分规则：1颗星==1分
@@ -35,12 +35,12 @@ class JNStarRateView: UIView {
         }
     }
 
-    private var starBackgroundView:UIView!
-    private var starForegroundView:UIView!
-    private var _allowUserPan:Bool = false//默认不支持滑动评分
-    private var count:Int!
-    private var score:Float!
-    private var firstInit:Bool = true//是否是创建view
+    fileprivate var starBackgroundView:UIView!
+    fileprivate var starForegroundView:UIView!
+    fileprivate var _allowUserPan:Bool = false//默认不支持滑动评分
+    fileprivate var count:Int!
+    fileprivate var score:Float!
+    fileprivate var firstInit:Bool = true//是否是创建view
     
     /**
      * 一颗星代表一分
@@ -61,7 +61,7 @@ class JNStarRateView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    private func createStarView()->(){
+    fileprivate func createStarView()->(){
         starBackgroundView = starViewWithImageName("backgroundStar.png")
         starForegroundView = starViewWithImageName("foregroundStar.png")
         self.addSubview(starBackgroundView)
@@ -72,7 +72,7 @@ class JNStarRateView: UIView {
         let tap = UITapGestureRecognizer(target: self,action: #selector(JNStarRateView.starTap(_:)))
         self.addGestureRecognizer(tap)
     }
-    private func starViewWithImageName(imageName:String) -> UIView {
+    fileprivate func starViewWithImageName(_ imageName:String) -> UIView {
         let starView = UIView.init(frame: self.bounds)
         starView.clipsToBounds = true
         //添加星星
@@ -85,29 +85,29 @@ class JNStarRateView: UIView {
         return starView
     }
     //滑动评分
-    func starPan(recognizer:UIPanGestureRecognizer) -> () {
+    func starPan(_ recognizer:UIPanGestureRecognizer) -> () {
         var OffX:CGFloat = 0
-        if recognizer.state == .Began{
-            OffX = recognizer.locationInView(self).x
-        }else if recognizer.state == .Changed{
-            OffX += recognizer.locationInView(self).x
+        if recognizer.state == .began{
+            OffX = recognizer.location(in: self).x
+        }else if recognizer.state == .changed{
+            OffX += recognizer.location(in: self).x
         }else{
             return
         }
-        self.score = Float(OffX) / Float(CGRectGetWidth(self.bounds)) * Float(self.count)
+        self.score = Float(OffX) / Float(self.bounds.width) * Float(self.count)
         showStarRate()
         backSorce()
     }
     //点击评分
-    func starTap(recognizer:UIPanGestureRecognizer) -> () {
-        let OffX = recognizer.locationInView(self).x
-        self.score = Float(OffX) / Float(CGRectGetWidth(self.bounds)) * Float(self.count)
+    func starTap(_ recognizer:UIPanGestureRecognizer) -> () {
+        let OffX = recognizer.location(in: self).x
+        self.score = Float(OffX) / Float(self.bounds.width) * Float(self.count)
         showStarRate()
         backSorce()
     }
     
     //交互后反向返回分数
-    private func backSorce(){
+    fileprivate func backSorce(){
         if (self.delegate != nil) {
             var newScore:Float =  allowUnderCompleteStar ? score : Float(Int(score + 0.8))
             if  newScore > Float(count){
@@ -121,14 +121,14 @@ class JNStarRateView: UIView {
     }
     
     //显示评分
-    private func showStarRate(){
+    fileprivate func showStarRate(){
         let  duration = (usePanAnimation && !firstInit) ? 0.1 : 0.0
-        UIView.animateWithDuration(duration) {
+        UIView.animate(withDuration: duration, animations: {
             if self.allowUnderCompleteStar{//支持非整星评分
-                self.starForegroundView.frame = CGRect(x: 0,y: 0,width: CGRectGetWidth(self.bounds) / CGFloat(self.count) * CGFloat(self.score),height: CGRectGetHeight(self.bounds))
+                self.starForegroundView.frame = CGRect(x: 0,y: 0,width: self.bounds.width / CGFloat(self.count) * CGFloat(self.score),height: self.bounds.height)
             }else{//只支持整星评分
-                self.starForegroundView.frame = CGRect(x: 0,y: 0,width: CGRectGetWidth(self.bounds) / CGFloat(self.count) * CGFloat(Int(self.score + 0.8)),height: CGRectGetHeight(self.bounds))
+                self.starForegroundView.frame = CGRect(x: 0,y: 0,width: self.bounds.width / CGFloat(self.count) * CGFloat(Int(self.score + 0.8)),height: self.bounds.height)
             }
-        }
+        }) 
     }
 }
