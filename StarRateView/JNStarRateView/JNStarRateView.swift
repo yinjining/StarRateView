@@ -19,7 +19,7 @@ class JNStarRateView: UIView {
     var usePanAnimation:Bool = false//滑动评分是否使用动画，默认为false
     var allowUnderCompleteStar:Bool = true{//是否允许非整星评分，默认为true
         willSet{
-            self.allowUnderCompleteStar = false
+            self.allowUnderCompleteStar = newValue
             showStarRate()
         }
     }
