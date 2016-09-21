@@ -1,6 +1,6 @@
 #demo是封装好的一个星星评分控件
 
-![image](https://github.com/yinjining/JNStarRateView/blob/master/星星评分.png)
+![星星.png](http://upload-images.jianshu.io/upload_images/2953881-890745e4832cbcf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ##使用如下：
 ###1、创建
