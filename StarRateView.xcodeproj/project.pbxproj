@@ -210,8 +210,9 @@
 				TargetAttributes = {
 					A17141921D8FEB7600A86D08 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9W7PWYPF29;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					A17141A61D8FEB7600A86D08 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -426,12 +427,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9W7PWYPF29;
 				INFOPLIST_FILE = StarRateView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.founder.StarRateView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2bd59d42-8210-4981-b3e6-23b241009ffd";
+				PROVISIONING_PROFILE_SPECIFIER = "com.*";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
