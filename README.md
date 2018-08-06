@@ -34,7 +34,7 @@ starView.followDuration = 0.1//滑动或点击后跟随到达时间，默认0.1�
 ```
 starView.currentStarCount = 1 //当前显示的评星数
 ```
-1.7通过协议代理返回评分后的分数,别忘记了准守协议哦
+2、通过协议代理返回评分后的分数,别忘记了准守协议哦
 ```
 starView.delegate = self
 
