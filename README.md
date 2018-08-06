@@ -5,7 +5,9 @@ JNStarRateView是封装好的一个星星评分控件
 
 
 我封装了一个类，以适应星星评分的各种情况。下面直接上代码
+
 1、调用类使用
+
 1.1 创建
 ```
 //        let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 200,height: 38))//默认的是5颗星，分数为0分
