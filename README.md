@@ -38,7 +38,7 @@ starView.delegate = self
 
 
 func starRate(view starRateView: JNStarRateView, score: Float) {
-print(score)
+     print(score)
 }
 ```
 
