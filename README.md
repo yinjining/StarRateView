@@ -35,6 +35,8 @@ starView.currentStarCount = 1 //当前显示的评星数
 1.7通过协议代理返回评分后的分数,别忘记了准守协议哦
 ```
 starView.delegate = self
+
+
 func starRate(view starRateView: JNStarRateView, score: Float) {
 print(score)
 }
