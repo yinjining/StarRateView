@@ -26,7 +26,7 @@ starView.userPanEnabled = true //滑动
 ```
 starView.integerStar = false // 完整星星
 ```
-1.5滑动或点击后动画动画运动到时间
+1.5滑动或点击后运动到手指位置所需时间
 ```
 starView.followDuration = 0.1//滑动或点击后跟随到达时间，默认0.1秒
 ```
