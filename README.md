@@ -14,9 +14,9 @@ JNStarRateView是封装好的一个星星评分控件
 let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 200,height: 38), numberOfStars: 5, currentStarCount: 3.4)
 self.view.addSubview(starView)
 ```
-1.2关闭用户操作,默认是开启的
+1.2关闭用户手势操作,默认是开启的
 ```
-starView.isUserInteractionEnabled = false//不支持用户操作
+starView.isUserInteractionEnabled = false//不支持用户手势操作
 ```
 1.3支持滑动评分，默认只支持点击评分，不支持滑动评分
 ```
