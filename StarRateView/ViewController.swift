@@ -12,6 +12,7 @@ class ViewController: UIViewController,JNStarReteViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 200,height: 38))//默认的是5颗星，分数为0分
         let starView = JNStarRateView.init(frame: CGRect(x: 20,y: 60,width: 200,height: 38), numberOfStars: 5, currentStarCount: 3.4)
 //        starView.isUserInteractionEnabled = false//不支持用户操作
