@@ -24,7 +24,7 @@ class JNStarRateView: UIView {
     var userPanEnabled:Bool = false{//滑动,defualt is false
         didSet{
             if userPanEnabled {
-                let pan = UIPanGestureRecognizer(target: self,action: #selector(JNStarRateView.starPan(_:)))
+                let pan = UIPanGestureRecognizer(target: self,action: #selector(starPan(_:)))
                 addGestureRecognizer(pan)
             }
         }
@@ -73,7 +73,7 @@ class JNStarRateView: UIView {
         self.currentStarCount = currentStarCount
         clipsToBounds = true
         
-        let tap = UITapGestureRecognizer(target: self,action: #selector(JNStarRateView.starTap(_:)))
+        let tap = UITapGestureRecognizer(target: self,action: #selector(starTap(_:)))
         addGestureRecognizer(tap)
         
         starForegroundView = starViewWithImageName("foregroundStar.png")
@@ -116,7 +116,7 @@ class JNStarRateView: UIView {
     
     //MARK: - 手势交互
     //滑动评分
-    func starPan(_ recognizer:UIPanGestureRecognizer) -> () {
+    @objc func starPan(_ recognizer:UIPanGestureRecognizer) -> () {
         var OffX:CGFloat = 0
         if recognizer.state == .began{
             OffX = recognizer.location(in: self).x
@@ -130,7 +130,7 @@ class JNStarRateView: UIView {
         backSorce()
     }
     //点击评分
-    func starTap(_ recognizer:UITapGestureRecognizer) -> () {
+    @objc func starTap(_ recognizer:UITapGestureRecognizer) -> () {
         let OffX = recognizer.location(in: self).x
         currentStarCount = Float(OffX) / Float(bounds.width) * Float(numberOfStars)
         showStarRate()
